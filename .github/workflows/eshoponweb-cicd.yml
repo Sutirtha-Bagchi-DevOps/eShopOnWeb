@@ -72,14 +72,12 @@ jobs:
     - name: Azure Login
       uses: azure/login@v1
       with:
-        azcliversion: 2.30.0
         creds: ${{ secrets.AZURE_CREDENTIALS }}
            
     # Deploy Azure WebApp using Bicep file
     - name: deploy
       uses: azure/arm-deploy@v1
       with:
-        azcliversion: 2.30.0
         subscriptionId: ${{ env.SUBSCRIPTION-ID }}
         resourceGroupName: ${{ env.RESOURCE-GROUP }}
         template: bicep-template/webapp.bicep
